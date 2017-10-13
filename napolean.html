@@ -1,0 +1,139 @@
+<html>
+<head>
+<style>
+
+	ul {
+		list-style-type:none;
+		margin-right:120px;
+		margin-left:120px;
+		padding:0;
+		overflow:hidden;
+		background-color:#eaeaeb;
+	}
+	
+
+	li a {
+		display:block;
+		color:#4e8ad3;
+		text-align:center;
+		padding:10px 12px;
+		text-decoration:none;
+		font-family:cursive;
+		font-size:16px;
+	}
+		
+	li {
+		float:left;
+		border-right:2px solid #c3c7cd;
+	}
+		
+	li a.active {
+		background-color:#333;
+		color:#38b4cf;
+	}
+	
+	li a:hover:not(.active) {
+		background-color:#bdc1c6;
+		color:#0e7bff;
+	}	
+	
+	body { 
+		display:block;
+		background-image: url("paris.jpg");
+		background-repeat: no-repeat; 
+		background-size: 100%;
+		background-position: center;
+		background-attachment:fixed;
+    	width: center;
+    	padding-left: 75px;
+		padding-right:75px;
+	}
+	#main {
+		display:block;
+		margin-left:120px;
+		margin-right: 120px;
+		margin-top: 25px;
+		padding-top: 30px;
+		padding-bottom:30px;
+		padding-right: 50px;
+		padding-left: 50px;
+		height: 100%;
+		background-color:#fafffd;
+	}
+	
+	h1 {
+		font-family: snell roundhand;
+		text-shadow: 1px 1px black;
+		font-size: 65px;
+	}
+	
+	p {
+		Font-family: palatino;
+		font-size: 24px;
+   	 	padding-right: 300px;
+   	 	margin-right: 300px;
+   	 	padding-left: 30px;
+   	 	margin-left: 30px;
+	}
+	
+</style>
+</head>
+<body>
+
+<div id="title" style="margin-left:140px">
+<a style="font-family:cursive;font-size:45px;text-shadow:2px 2px white"> CITY OF LIGHTS</a>
+<img src="parislogo.png" width="250" </img>
+</div>
+<ul>
+	<li><a href="vacation.html">Home</a></li>
+	<li><a href="eiffel.html">Eiffel Tower</a></li>
+	<li><a href="louvre.html">The Louvre Pyramids</a></li>  
+	<li><a class="active" href="#napolean">Napolean's Tomb</a></li>
+	<li><a href="source.html">Sources</a></li>
+</ul>
+
+<div id="main">
+<h1> Napolean's Tomb</h1> 
+<div id="googleMap" style="width:550px;height:700px;float:right"></div>
+<p> Napolean Bonaparte's final resting place is located in the Les Invalides, which is mainly known by Hôtel national des Invalides, which is also a museum to France's military history but was originally built to house deceased war veterans. <p>
+
+<img src="tomb.jpg" width="700"</img>
+
+</div>
+
+
+
+<script>
+function myMap() {
+var mapcenter= new google.maps.LatLng(48.8552, 2.3126);
+var mapProp= {
+    center:mapcenter,
+    zoom:18,
+    mapTypeId:google.maps.MapTypeId.HYBRID
+};
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+var paris= new google.maps.LatLng(48.8552, 2.3126);
+
+
+var parismarker = new google.maps.Marker({
+	position: paris,
+	icon: "mmi.png",
+});
+
+var infowindow = new google.maps.InfoWindow({
+    content: "Napolean's Tomb"
+});
+
+	parismarker.setMap(map);
+
+  	infowindow.open(googleMap,parismarker);
+}
+
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBclYDI96xpPK0rpjVNn3SHO9ZPPJeWAqo&callback=myMap"></script>
+
+
+</body>
+</html>
